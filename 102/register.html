@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>注册</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-------------jquery库-------------->
+  	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/check2.js"></script>
+	<!-------------Amazeui--------------->
+    <script type="text/javascript" src="js/amazeui.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/amazeui.css">
+    <!------------核心样式-------------->
+    <link rel="stylesheet" type="text/css" href="css/user.css">    
+</head>
+<body>
+<!-------------------登录------------------->
+<div id="log_register">
+
+	<div class="lr_box">
+
+		<div class="tag">
+			<ul>
+				<li><a href="login.html">登录</a></li>
+				<li><a class="cur" href="register.html">注册</a></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class="center">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<form action="success.html" method="post" name="myform" onsubmit="return checkAll()">
+					<tr>
+						<td class="left">用户名：</td>
+						<td>
+							<input id="user" type="text"  class="inputs" onblur="checkUser()"/>
+							<div id="userMsg" class="red"  ></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">密码：</td>
+						<td>
+							<input id="pwd" type="password"  class="inputs" onblur="checkPwd()"/>
+							<div id="pwdMsg" class="red" ></div>
+						</td>
+					<tr>
+						<td class="left">确认密码：</td>
+						<td><input id="repwd" type="password"  class="inputs" onblur="checkRepwd()"/>
+							<div id="repwdMsg" class="red" ></div>
+						</td>
+					</tr>
+					<tr>
+					<tr>
+						<td class="left">性别：</td>
+						<td><div style="float:left;">
+							<input name="sex" type="radio" value="男" />男
+							<input name="sex" type="radio" value="女" />女
+						</div>
+							<div id="sexMsg" class="red"></div></td>
+					</tr>
+					<tr>
+						<td class="left">电子邮件地址</td>
+						<td>
+							<input id="email" type="text"  class="inputs" onblur="checkEmail()"/>
+							<div id="emailMsg" class="red" ></div></td>
+					</tr>
+					<tr>
+						<td class="left">出生日期：</td>
+						<td><select id="year">
+							<script type="text/javascript">
+								for(var i=1900;i<=2009;i++){
+									document.write("<option value="+i+">"+i+"</option>");
+								}
+							</script>
+						</select>年
+							<select id="month">
+								<script type="text/javascript">
+									for(var i=1;i<=12;i++){
+										document.write("<option value="+i+">"+i+"</option>");
+									}
+								</script>
+							</select>月
+							<select id="day">
+								<script type="text/javascript">
+									for(var i=1;i<=31;i++){
+										document.write("<option value="+i+">"+i+"</option>");
+									}
+								</script>
+							</select>日</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td>
+							<input name="sub" type="submit" value="注册" />
+							<input name="cancel" type="reset" value="清除" />
+						</td>
+					</tr>
+				</form>
+			</table>
+		</div>
+
+	</div>
+
+</div>
+
+<div style="text-align: center; position: fixed; bottom: 0; width: 100%; line-height: 150%; background: #f5f5f5; border-top: 1px solid #ddd;">  <a style="color:blue" target="_blank" href="https://ibaotu.com/ui/">  </a>
+	</div>
+</body>
+</html>
