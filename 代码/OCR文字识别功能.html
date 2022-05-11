@@ -1,0 +1,718 @@
+<html>
+<head>
+    <meta charSet="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OCR文字识别功能</title>
+    <meta name="keywords" content="OCR文字识别,OCR文字识别功能演示">
+    <meta name="description" content="">
+    <link rel="stylesheet"
+          href="https://imgcache.qq.com/open_proj/proj_qcloud_v2/tc-portal/ai-demo/build/ocr/css/index-202007091749.css">
+    <script type="text/javascript" async="" src="https://www.google.com/pagead/conversion_async.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KV8Z8NK"></script>
+    <script async="" src="//cloudcache.tencent-cloud.cn/open/qcloud/common/analytics.js?max_age=31536000"></script>
+    <script data-reactroot="">
+        window.QCACT_DOMAIN_CONFIG = {
+            "cloudcache": "cloudcache.tencent-cloud.cn",
+            "dscache": "dscache.tencent-cloud.cn",
+            "slscache": "slscache.tencent-cloud.cn",
+            "act": "cloud.tencent.com",
+            "actApi": "act-api.cloud.tencent.com",
+            "main": "cloud.tencent.com",
+            "buy": "buy.cloud.tencent.com",
+            "console": "console.cloud.tencent.com",
+            "market": "macket.cloud.tencent.com",
+            "opc": "opc.cloud.tencent.com",
+            "$suffix": "com"
+        };
+        document.domain = "cloud.tencent.com";
+    </script>
+    <link rel="stylesheet" type="text/css"
+          href="https://cloudcache.tencentcs.com/qcloud/portal/kit/224060.23d92af8a000f1cb0980.css">
+</head>
+<body>
+<div className="ocr-nav__container">
+    <div className="ocr-nav__list">
+        <div className="ocr-nav__list-menu">
+        </div>
+    </div>
+
+</div>
+
+<div className="ocr-body_bg">
+    <div className="c-section c-p-y-tall">
+        <div className="c-section-inner">
+            <div className="c-section-bd">
+                <div id="demo-app">
+                    <div className="__ocr">
+                        <div className="ai-demo-main">
+                            <div className="ai-demo-inner">
+                                <div className="ai-demo-tabs has-child-tabs">
+                                    <div className="ai-demo-tabs-parent">
+                                        <div className="tab-item active">
+                                            <div className="tab-icon"><i className="ai-demo-icon-32-ocr-text"></i></div>
+                                            <div className="tab-text">通用文字识别</div>
+                                        </div>
+                                        <div className="tab-item">
+                                            <div className="tab-icon"><i className="ai-demo-icon-32-ocr-id"></i></div>
+                                            <div className="tab-text">卡证文字识别</div>
+                                        </div>
+                                        <div className="tab-item">
+                                            <div className="tab-icon"><i className="ai-demo-icon-32-ocr-receipt"></i>
+                                            </div>
+                                            <div className="tab-text">票据单据识别</div>
+                                        </div>
+                                        <div className="tab-item">
+                                            <div className="tab-icon"><i className="ai-demo-icon-32-ocr-car"></i></div>
+                                            <div className="tab-text">汽车相关识别</div>
+                                        </div>
+                                        <div className="tab-item">
+                                            <div className="tab-icon"><i className="ai-demo-icon-32-ocr-doc"></i></div>
+                                            <div className="tab-text">行业文档识别</div>
+                                        </div>
+                                        <div className="tab-item">
+                                            <div className="tab-icon"><i className="ai-demo-icon-32-ocr-scanCode"></i>
+                                            </div>
+                                            <div className="tab-text">智能扫码</div>
+                                        </div>
+                                    </div>
+                                    <div id="slide" className="ai-demo-tabs-children">
+                                        <div id="menu0731" className="ai-demo-tabs-children__inner"
+                                             style="transform: translateX(0px);">
+                                            <div className="tab-item active">通用印刷体</div>
+                                            <div className="tab-item">通用印刷体（高精度版）</div>
+                                            <div className="tab-item">通用印刷体（精简版）</div>
+                                            <div className="tab-item">通用手写体</div>
+                                            <div className="tab-item">英文</div>
+                                            <div className="tab-item">快速文本检测</div>
+                                            <div className="tab-item">广告文字识别</div>
+                                            <div className="tab-item">防疫健康码</div>
+                                            <div className="tab-item">通信行程卡</div>
+                                        </div>
+                                    </div>
+                                    <div className="tab-item-filter"><i className="ai-demo-icon-24-filter"></i></div>
+                                    <div className="ai-demo-tabs-children__dropdown">
+                                        <div className="tab-item active">通用印刷体</div>
+                                        <div className="tab-item">通用印刷体（高精度版）</div>
+                                        <div className="tab-item">通用印刷体（精简版）</div>
+                                        <div className="tab-item">通用手写体</div>
+                                        <div className="tab-item">英文</div>
+                                        <div className="tab-item">快速文本检测</div>
+                                        <div className="tab-item">广告文字识别</div>
+                                        <div className="tab-item">防疫健康码</div>
+                                        <div className="tab-item">通信行程卡</div>
+                                    </div>
+                                </div>
+                                <div className="ai-demo-mold active">
+                                    <div className="ai-demo-mold__head">
+                                        <div className="hd-title">核心能力</div>
+                                        <div className="hd-des">支持多场景、任意版面下整图文字的识别，包括中英文、字母、数字和日语、韩语、西班牙语等二十余种多语言识别。<a
+                                                href="https://cloud.tencent.com/document/product/866/33526"
+                                                target="_blank"><span>了解详情</span><i
+                                                className="ai-demo-icon-16-link"></i></a></div>
+                                    </div>
+                                    <div className="ai-demo-mold__body">
+                                        <div className="ai-demo-mold__inner">
+                                            <div className="ai-demo-mold__left-coll">
+                                                <div className="ai-demo-mold__left-panel"><span
+                                                        className="bor-bl"></span><span className="bor-br"></span>
+                                                    <div className="ai-demo-showroom">
+                                                        <div className="ai-demo-showroom__status"></div>
+                                                        <div className="ai-demo-showroom__container"
+                                                             data-label="请先上传人物图像">
+                                                            <div className="ai-demo-showroom__image"><img
+                                                                    className="image"
+                                                                    src="https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR1.jpg"
+                                                                    alt="">
+                                                                <div className="ai-demo-showroom__moblie-left-btn disable"></div>
+                                                                <div className="ai-demo-showroom__moblie-right-btn"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="ai-demo-carousel image-list">
+                                                        <div className="btn-left disable hide"></div>
+                                                        <div className="btn-right hide"></div>
+                                                        <div className="ai-demo-carousel__box">
+                                                            <div className="ai-demo-carousel__inner"
+                                                                 style="transform: translateX(0px);">
+                                                                <div className="ai-demo-carousel__item active"><img
+                                                                        className="image"
+                                                                        src="https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR1.jpg"
+                                                                        style="height: 100%; width: 100%; object-fit: contain; margin: auto;">
+                                                                </div>
+                                                                <div className="ai-demo-carousel__item"><img
+                                                                        className="image"
+                                                                        src="https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR2.jpg"
+                                                                        style="height: 100%; width: 100%; object-fit: contain; margin: auto;">
+                                                                </div>
+                                                                <div className="ai-demo-carousel__item"><img
+                                                                        className="image"
+                                                                        src="https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR3.jpg"
+                                                                        style="height: 100%; width: 100%; object-fit: contain; margin: auto;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="ai-demo-uploadimage">
+                                                    <div className="ai-demo-uploadimage__control">
+                                                        <div className="ai-demo-uploadimage__up-btn"
+                                                             style="cursor: pointer;"><input style="display: none;"
+                                                                                             type="file"
+                                                                                             title="文件限制提示内容"
+                                                                                             accept="image/png, image/jpg, image/jpeg, .pdf"><span
+                                                                className="text">上传本地文件</span><i
+                                                                className="ai-demo-icon-16-loading"></i></div>
+                                                        <div className="ai-demo-uploadimage__up-text">或</div>
+                                                        <div className="ai-demo-uploadimage__up-search"><input
+                                                                type="text" className="" placeholder="输入在线图片或PDF的URL">
+                                                            <div className="search-btn"><i
+                                                                    className="ai-demo-icon-20-search"></i><i
+                                                                    className="ai-demo-icon-16-loading"></i></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="ai-demo-uploadimage__text-tips">
+                                                        支持PNG、JPG、JPEG、PDF等格式，图片大小不超过7M。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="ai-demo-mold__right-coll">
+                                                <div className="ai-demo-mold__right-panel"><span
+                                                        className="bor-bl"></span><span className="bor-br"></span>
+                                                    <div className="ai-demo-mold__parameter-setting">
+                                                        <div className="head-box">参数设置</div>
+                                                        <div className="body-box">
+                                                            <div className="ai-demo-form">
+                                                                <div className="ai-demo-form__item">
+                                                                    <div className="ai-demo-form__label">
+                                                                        <label>识别语言</label></div>
+                                                                    <div className="ai-demo-form__controls">
+                                                                        <div className="ai-demo-dropdown">
+                                                                            <div className="ai-demo-dropdown__header">
+                                                                                <span className="value">中英文混合</span><i
+                                                                                    className="ai-demo-icon-16-drop-down"></i>
+                                                                            </div>
+                                                                            <ul className="ai-demo-dropdown__menu">
+                                                                                <li><span data-lang="zh"
+                                                                                          className="lable-title">中英文混合</span>
+                                                                                </li>
+                                                                                <li><span data-lang="auto"
+                                                                                          className="lable-title">自动识别</span>
+                                                                                </li>
+                                                                                <li><span data-lang="zh_rare"
+                                                                                          className="lable-title">中文生僻字</span>
+                                                                                </li>
+                                                                                <li><span data-lang="jap"
+                                                                                          className="lable-title">日语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="kor"
+                                                                                          className="lable-title">韩语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="spa"
+                                                                                          className="lable-title">西班牙语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="fre"
+                                                                                          className="lable-title">法语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="ger"
+                                                                                          className="lable-title">德语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="por"
+                                                                                          className="lable-title">葡萄牙语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="vie"
+                                                                                          className="lable-title">越南语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="may"
+                                                                                          className="lable-title">马来语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="rus"
+                                                                                          className="lable-title">俄语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="ita"
+                                                                                          className="lable-title">意大利语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="hol"
+                                                                                          className="lable-title">荷兰语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="swe"
+                                                                                          className="lable-title">瑞典语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="fin"
+                                                                                          className="lable-title">芬兰语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="dan"
+                                                                                          className="lable-title">丹麦语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="nor"
+                                                                                          className="lable-title">挪威语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="hun"
+                                                                                          className="lable-title">匈牙利语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="tha"
+                                                                                          className="lable-title">泰语</span>
+                                                                                </li>
+                                                                                <li><span data-lang="lat"
+                                                                                          className="lable-title">拉丁语系</span>
+                                                                                </li>
+                                                                                <li><span data-lang="ara"
+                                                                                          className="lable-title">阿拉伯语</span>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="ai-demo-mold__return-result">
+                                                        <div className="ai-demo-mold__return-result__tabs">
+                                                            <div className="ai-demo-mold__return-result__tabs-item active">
+                                                                <div className="ai-demo-mold__return-result__tabs-hd">
+                                                                    <span className="title">识别结果</span><i
+                                                                        className="ai-demo-icon-16-show"></i></div>
+                                                                <div className="ai-demo-mold__return-result__tabs-bd">
+                                                                    <table>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>Sun</div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>1月8日</div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>八色鸫</div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>Pilta nympha</div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>八色鸫雌鸟和雄鸟一样漂亮。它经常在亚热带的森林地面上走动,捕
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>食落叶下的昆虫和蜥蜴等小动物,唱歌时会飞到树上。因为森林砍伐
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div>和非法的玩赏鸟贸易,现在它的数量已明显减少。</div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div className="ai-demo-mold__return-result__tabs-item">
+                                                                <div className="ai-demo-mold__return-result__tabs-hd">
+                                                                    <span className="title">Request</span><i
+                                                                        className="ai-demo-icon-16-show"></i></div>
+                                                                <div className="ai-demo-mold__return-result__tabs-bd">
+                                                                    <div style="white-space: pre;">{
+                                                                        "ImageUrl":
+                                                                        "https://ocr-demo-1254418846.cos.ap-guangzhou.myqcloud.com/general/GeneralBasicOCR/GeneralBasicOCR1.jpg",
+                                                                        "LanguageType": "zh",
+                                                                        "IsPdf": true
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="ai-demo-mold__return-result__tabs-item">
+                                                                <div className="ai-demo-mold__return-result__tabs-hd">
+                                                                    <span className="title">Response</span><i
+                                                                        className="ai-demo-icon-16-show"></i></div>
+                                                                <div className="ai-demo-mold__return-result__tabs-bd">
+                                                                    <div style="white-space: pre;">{
+                                                                        "Angel": 359.989990234375,
+                                                                        "Language": "zh",
+                                                                        "PdfPageSize": 0,
+                                                                        "RequestId":
+                                                                        "6116f201-ff21-4214-bf06-595087669d12",
+                                                                        "TextDetections": [
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":1}}",
+                                                                        "Confidence": 99,
+                                                                        "DetectedText": "Sun",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 35,
+                                                                        "Width": 74,
+                                                                        "X": 464,
+                                                                        "Y": 100
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 464,
+                                                                        "Y": 100
+                                                                        },
+                                                                        {
+                                                                        "X": 538,
+                                                                        "Y": 100
+                                                                        },
+                                                                        {
+                                                                        "X": 538,
+                                                                        "Y": 135
+                                                                        },
+                                                                        {
+                                                                        "X": 464,
+                                                                        "Y": 135
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        },
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":2}}",
+                                                                        "Confidence": 99,
+                                                                        "DetectedText": "1月8日",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 18,
+                                                                        "Width": 52,
+                                                                        "X": 476,
+                                                                        "Y": 141
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 476,
+                                                                        "Y": 141
+                                                                        },
+                                                                        {
+                                                                        "X": 528,
+                                                                        "Y": 141
+                                                                        },
+                                                                        {
+                                                                        "X": 528,
+                                                                        "Y": 159
+                                                                        },
+                                                                        {
+                                                                        "X": 476,
+                                                                        "Y": 159
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        },
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":3}}",
+                                                                        "Confidence": 99,
+                                                                        "DetectedText": "八色鸫",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 28,
+                                                                        "Width": 85,
+                                                                        "X": 62,
+                                                                        "Y": 443
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 62,
+                                                                        "Y": 443
+                                                                        },
+                                                                        {
+                                                                        "X": 147,
+                                                                        "Y": 442
+                                                                        },
+                                                                        {
+                                                                        "X": 147,
+                                                                        "Y": 470
+                                                                        },
+                                                                        {
+                                                                        "X": 63,
+                                                                        "Y": 471
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        },
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":4}}",
+                                                                        "Confidence": 97,
+                                                                        "DetectedText": "Pilta nympha",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 17,
+                                                                        "Width": 96,
+                                                                        "X": 61,
+                                                                        "Y": 482
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 61,
+                                                                        "Y": 482
+                                                                        },
+                                                                        {
+                                                                        "X": 157,
+                                                                        "Y": 483
+                                                                        },
+                                                                        {
+                                                                        "X": 157,
+                                                                        "Y": 500
+                                                                        },
+                                                                        {
+                                                                        "X": 61,
+                                                                        "Y": 499
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        },
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":5}}",
+                                                                        "Confidence": 99,
+                                                                        "DetectedText":
+                                                                        "八色鸫雌鸟和雄鸟一样漂亮。它经常在亚热带的森林地面上走动,捕",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 18,
+                                                                        "Width": 426,
+                                                                        "X": 60,
+                                                                        "Y": 506
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 60,
+                                                                        "Y": 506
+                                                                        },
+                                                                        {
+                                                                        "X": 486,
+                                                                        "Y": 503
+                                                                        },
+                                                                        {
+                                                                        "X": 486,
+                                                                        "Y": 521
+                                                                        },
+                                                                        {
+                                                                        "X": 60,
+                                                                        "Y": 523
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        },
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":5}}",
+                                                                        "Confidence": 99,
+                                                                        "DetectedText":
+                                                                        "食落叶下的昆虫和蜥蜴等小动物,唱歌时会飞到树上。因为森林砍伐",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 16,
+                                                                        "Width": 426,
+                                                                        "X": 60,
+                                                                        "Y": 530
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 60,
+                                                                        "Y": 530
+                                                                        },
+                                                                        {
+                                                                        "X": 486,
+                                                                        "Y": 530
+                                                                        },
+                                                                        {
+                                                                        "X": 486,
+                                                                        "Y": 546
+                                                                        },
+                                                                        {
+                                                                        "X": 60,
+                                                                        "Y": 546
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        },
+                                                                        {
+                                                                        "AdvancedInfo": "{\"Parag\":{\"ParagNo\":5}}",
+                                                                        "Confidence": 99,
+                                                                        "DetectedText": "和非法的玩赏鸟贸易,现在它的数量已明显减少。",
+                                                                        "ItemPolygon": {
+                                                                        "Height": 18,
+                                                                        "Width": 308,
+                                                                        "X": 59,
+                                                                        "Y": 554
+                                                                        },
+                                                                        "Polygon": [
+                                                                        {
+                                                                        "X": 59,
+                                                                        "Y": 554
+                                                                        },
+                                                                        {
+                                                                        "X": 367,
+                                                                        "Y": 552
+                                                                        },
+                                                                        {
+                                                                        "X": 368,
+                                                                        "Y": 570
+                                                                        },
+                                                                        {
+                                                                        "X": 59,
+                                                                        "Y": 572
+                                                                        }
+                                                                        ],
+                                                                        "WordCoordPoint": [],
+                                                                        "Words": []
+                                                                        }
+                                                                        ]
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="ai-demo-mold__QC-code">
+                                                    <div className="image"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://dscache.tencent-cloud.cn/vendors/jquery/jquery-3.5.1.min.js"></script>
+        <script src="https://cloud.tencent.com/qccomponent/login/api.js"></script>
+        <script src="https://cloudcache.tencent-cloud.cn/qcloud/act/scripts/qcstats/qcloudStatApi.js" async=""></script>
+        <script src="https://cloudcache.tencent-cloud.cn/qcloud/main/scripts/release/common/deps/wechatJsSdk.js"></script>
+        <script src="https://cloudcache.tencent-cloud.cn/qcloud/act/scripts/release/common/addon/interceptLink.ec560b33e91a923e4961.js"
+                defer=""></script>
+        <script type="text/javascript"
+                src="//cloudcache.tencent-cloud.cn/qcloud/act/scripts/release/common/base.4ced12c70c4a6dd1f3f7.js?max_age=31536000"></script>
+        <script type="text/javascript"
+                src="//slscache.tencent-cloud.cn/qcact-ssr-dist/template/next-base.48baedc8f62f73796bff.js"></script>
+        <script src="https://imgcache.qq.com/qcloud/main/scripts/release/common/login/api.js"></script>
+        <script src="https://imgcache.qq.com/qcloud/main/scripts/release/common/base.ebb3fbdfe5f7ebbddc7d.js"></script>
+        <script src="https://imgcache.qq.com/qcloud/ocr/activity/modules/ocrdemo.common.js"></script>
+        <script src="https://imgcache.qq.com/qcloud/ocr/activity/pages/ocrdemo.3f2f3819fb.js"></script>
+        <script>
+            window.__QCPortalContext__ = {
+                version: "0.3.0",
+                resource: {},
+                $getCurrServerTime: (function (s, c) {
+                    return function () {
+                        return +new Date() + s - c;
+                    }
+                })(1652092455321, +new Date()),
+            }
+        </script>
+        <script src="https://cloudcache.tencentcs.com/qcloud/portal/kit/full.0fbb5c640.js"></script>
+        <script>
+            if (window.QCPortalKit) {
+                window.QCPortalKit.init({"topNav": {}, "footer": {}, "version": 2, "floatBar": {"disable": false}})
+            }
+        </script>
+        <script>
+            (function () {
+                var ws = new WebSocket('ws://' + window.location.host + '/jb-server-page?reloadServiceClientId=256');
+                ws.onmessage = function (msg) {
+                    if (msg.data === 'reload') {
+                        window.location.reload();
+                    }
+                    if (msg.data.startsWith('update-css ')) {
+                        var messageId = msg.data.substring(11);
+                        var links = document.getElementsByTagName('link');
+                        for (var i = 0; i < links.length; i++) {
+                            var link = links[i];
+                            if (link.rel !== 'stylesheet') continue;
+                            var clonedLink = link.cloneNode(true);
+                            var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                            if (newHref !== link.href) {
+                                clonedLink.href = newHref;
+                            } else {
+                                var indexOfQuest = newHref.indexOf('?');
+                                if (indexOfQuest >= 0) {
+                                    // to support ?foo#hash
+                                    clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                        newHref.substring(indexOfQuest + 1);
+                                } else {
+                                    clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                                }
+                            }
+                            link.replaceWith(clonedLink);
+                        }
+                    }
+                };
+            })();
+        </script>
+        <script>
+            (function () {
+                var ws = new WebSocket('ws://' + window.location.host + '/jb-server-page?reloadServiceClientId=261');
+                ws.onmessage = function (msg) {
+                    if (msg.data === 'reload') {
+                        window.location.reload();
+                    }
+                    if (msg.data.startsWith('update-css ')) {
+                        var messageId = msg.data.substring(11);
+                        var links = document.getElementsByTagName('link');
+                        for (var i = 0; i < links.length; i++) {
+                            var link = links[i];
+                            if (link.rel !== 'stylesheet') continue;
+                            var clonedLink = link.cloneNode(true);
+                            var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                            if (newHref !== link.href) {
+                                clonedLink.href = newHref;
+                            } else {
+                                var indexOfQuest = newHref.indexOf('?');
+                                if (indexOfQuest >= 0) {
+                                    // to support ?foo#hash
+                                    clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                        newHref.substring(indexOfQuest + 1);
+                                } else {
+                                    clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                                }
+                            }
+                            link.replaceWith(clonedLink);
+                        }
+                    }
+                };
+            })();
+        </script>
+        <script>
+            (function () {
+                var ws = new WebSocket('ws://' + window.location.host + '/jb-server-page?reloadServiceClientId=271');
+                ws.onmessage = function (msg) {
+                    if (msg.data === 'reload') {
+                        window.location.reload();
+                    }
+                    if (msg.data.startsWith('update-css ')) {
+                        var messageId = msg.data.substring(11);
+                        var links = document.getElementsByTagName('link');
+                        for (var i = 0; i < links.length; i++) {
+                            var link = links[i];
+                            if (link.rel !== 'stylesheet') continue;
+                            var clonedLink = link.cloneNode(true);
+                            var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                            if (newHref !== link.href) {
+                                clonedLink.href = newHref;
+                            } else {
+                                var indexOfQuest = newHref.indexOf('?');
+                                if (indexOfQuest >= 0) {
+                                    // to support ?foo#hash
+                                    clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                        newHref.substring(indexOfQuest + 1);
+                                } else {
+                                    clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                                }
+                            }
+                            link.replaceWith(clonedLink);
+                        }
+                    }
+                };
+            })();
+        </script>
+    </div>
+</div>
+<div id="qcportal-kit-footer"></div>
+</body>
+</html>
