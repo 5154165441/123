@@ -15838,3 +15838,133 @@ module.exports = UI.pay = {
 
 },{"2":2}]},{},[1])(1)
 });
+//彩虹
+//��������û��ɸ�����Ҫ�����޸�
+var rainbowrate = 15;
+//����Ϊϵͳ���������������޸ġ�
+var rainbowboj;
+var rainbowact = 0;
+var elmH = 0;
+var elmS = 128;
+var elmV = 255;
+var clrOrg;
+var TimerID;
+if (navigator.appName.indexOf("Microsoft",0) != -1 && parseInt(navigator.appVersion) >= 4) {
+  Browser = true;
+}
+else {
+  Browser = false;
+}
+if (Browser) {					//�������Ҫ����ʼ������궯���Կ�����ɫ�仯��
+  document.onmouseover = doRainbowAnchor;
+  document.onmouseout = stopRainbowAnchor;
+}
+//=============================================================================
+// doRainbowAnchor
+// �������ʹ��ɫ��ʼ
+//=============================================================================
+function doRainbowAnchor()
+{
+  if (Browser && rainbowact != 1) {
+    rainbowboj = event.srcElement;						//ȡ����µĶ���
+    while (rainbowboj.tagName != 'A' && rainbowboj.tagName != 'BODY') {	//�ж϶����Ƿ�Ϊ���ӻ��ǰ����������е���������
+      rainbowboj = rainbowboj.parentElement;
+      if (rainbowboj.tagName == 'A' || rainbowboj.tagName == 'BODY')
+        break;									//������߶����ǣ����˳�
+    }
+    if (rainbowboj.tagName == 'A' && rainbowboj.href != '') {		//����Ƿǿ�����
+      rainbowact = 1;								//�û��־
+      clrOrg = rainbowboj.style.color;					//ȡ�ַ���ɫ������
+      TimerID = setInterval("ChangeColor()",100);				//��ʼ�ı���ɫ
+    }
+  }
+}
+//=============================================================================
+// stopRainbowAnchor
+// �������ʹ��ɫֹͣ
+//=============================================================================
+function stopRainbowAnchor()
+{
+  if (Browser && rainbowact != 0) {					//���Ŀǰ��ɫ���ڽ�����
+    if (rainbowboj.tagName == 'A') {
+      clearInterval(TimerID);							//ȡ����ɫ��ʱ��
+      rainbowboj.style.color = clrOrg;					//�ָ�����ԭ������ɫ
+      rainbowact = 0;								//�趨��־
+    }
+  }
+}
+//=============================================================================
+// Change Color
+// �����������makeColor������ɫֵ��������Ӧ�õ���Ӧ�Ķ�����
+//=============================================================================
+function ChangeColor()
+{
+  rainbowboj.style.color = makeColor();
+}
+//=============================================================================
+// makeColor
+// ����������ڲ����ʺ��ı仯��ɫ
+//=============================================================================
+function makeColor()
+{
+// HSVtoRGB
+  if (elmS == 0) {
+    elmR = elmV;
+    elmG = elmV;
+    elmB = elmV;
+  }
+  else {
+    t1 = elmV;
+    t2 = (255 - elmS) * elmV / 255;
+    t3 = elmH % 60;
+    t3 = (t1 - t2) * t3 / 60;
+    if (elmH < 60) {
+      elmR = t1;
+      elmB = t2;
+      elmG = t2 + t3;
+    }
+    else
+    if (elmH < 120) {
+      elmG = t1;
+      elmB = t2;
+      elmR = t1 - t3;
+    }
+    else
+    if (elmH < 180) {
+      elmG = t1;
+      elmR = t2;
+      elmB = t2 + t3;
+    }
+    else
+    if (elmH < 240) {
+      elmB = t1;
+      elmR = t2;
+      elmG = t1 - t3;
+    }
+    else
+    if (elmH < 300) {
+      elmB = t1;
+      elmG = t2;
+      elmR = t2 + t3;
+    }
+    else
+    if (elmH < 360) {
+      elmR = t1;
+      elmG = t2;
+      elmB = t1 - t3;
+    }
+    else {
+      elmR = 0;
+      elmG = 0;
+      elmB = 0;
+    }
+  }
+  elmR = Math.floor(elmR);
+  elmG = Math.floor(elmG);
+  elmB = Math.floor(elmB);
+  clrRGB = '#' + elmR.toString(16) + elmG.toString(16) + elmB.toString(16);
+  elmH = elmH + rainbowrate;
+  if (elmH >= 360)
+    elmH = 0;
+  return clrRGB;
+}

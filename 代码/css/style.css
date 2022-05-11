@@ -25,6 +25,7 @@ body{width:100%;min-width:1280px;}
 #toolbar .tb img{margin-right:5px;}
 #toolbar .tb font{font-size:12px;}
 /*-----------------签到弹层----------------*/
+.caihong{font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;color: #0c80ba}
 #sign_layer .win-m{ width: 487px;height: 408px;left: 50%;top: 46%;margin:-204px 0 0 -243px;background:url(../images/sign-m.png) no-repeat;position: absolute;overflow: hidden; padding-top: 160px;-webkit-animation: large .3s cubic-bezier(0.16, 0.59, 0.13, 1.32) forwards;animation: large .3s cubic-bezier(0.16, 0.59, 0.13, 1.32) forwards;}
 #sign_layer .win-m .p1{ font-size: 24px;text-align: center;color:#454f54;line-height: 50px; }
 #sign_layer .win-m .p1 span{color:#f24828;padding:0 8px;}
